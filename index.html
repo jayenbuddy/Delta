@@ -3,23 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>DELTA LITE SETUP</title>
+    <style>
+        /* Desain simpel untuk tombol */
+        .btn-download-all {
+            background-color: #24292e;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .btn-download-all:hover {
+            background-color: #2ea44f;
+        }
+    </style>
 </head>
 <body>
     <h1>DELTA LITE 32 BIT</h1>
     <hr>
 
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.01-2.725.1142.apk.apk">DELTA 1</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.02-2.725.1142.apk.apk">DELTA 2</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.03-2.725.1142.apk.apk">DELTA 3</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.04-2.725.1142.apk.apk">DELTA 4</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.05-2.725.1142.apk.apk">DELTA 5</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.06-2.725.1142.apk.apk">DELTA 6</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.07-2.725.1142.apk.apk">DELTA 7</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.08-2.725.1142.apk.apk">DELTA 8</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.09-2.725.1142.apk.apk">DELTA 9</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.10-2.725.1142.apk.apk">DELTA 10</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/kiwi-browser-139-0-7339-0.apk">KIWI BROWSER</a><br>
-    <a href="https://github.com/jayenbuddy/Delta/releases/download/v1/smart-launcher-6-6-6-build-010.apk">SMART LAUNCHER</a><br>
+    <button class="btn-download-all" onclick="downloadAllFiles()">📥 Download All (Semua File)</button>
+    <br><br>
 
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.01-2.725.1142.apk.apk">DELTA 1</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.02-2.725.1142.apk.apk">DELTA 2</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.03-2.725.1142.apk.apk">DELTA 3</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.04-2.725.1142.apk.apk">DELTA 4</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.05-2.725.1142.apk.apk">DELTA 5</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.06-2.725.1142.apk.apk">DELTA 6</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.07-2.725.1142.apk.apk">DELTA 7</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.08-2.725.1142.apk.apk">DELTA 8</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.09-2.725.1142.apk.apk">DELTA 9</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.10-2.725.1142.apk.apk">DELTA 10</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/kiwi-browser-139-0-7339-0.apk">KIWI BROWSER</a><br>
+    <a class="download-link" href="https://github.com/jayenbuddy/Delta/releases/download/v1/smart-launcher-6-6-6-build-010.apk">SMART LAUNCHER</a><br>
+
+    <script>
+        function downloadAllFiles() {
+            // Mengambil semua elemen <a> yang memiliki class 'download-link'
+            const links = document.querySelectorAll('.download-link');
+            
+            links.forEach((link, index) => {
+                // Memberikan sedikit jeda (delay) agar browser tidak memblokir download massal
+                setTimeout(() => {
+                    const a = document.createElement('a');
+                    a.href = link.href;
+                    // Mengambil nama file dari ujung URL untuk penamaan saat diunduh
+                    a.download = link.href.split('/').pop(); 
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }, index * 400); // Jeda 400 milidetik per file
+            });
+        }
+    </script>
 </body>
 </html>
