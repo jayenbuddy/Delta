@@ -297,15 +297,17 @@
     <script>
         function downloadAllFiles() {
             const links = document.querySelectorAll('.download-link');
+            
             links.forEach((link, index) => {
                 setTimeout(() => {
-                    const a = document.createElement('a');
-                    a.href = link.href;
-                    a.download = link.href.split('/').pop(); 
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                }, index * 5000);
+                    // Menggunakan window.open terbukti lebih ampuh menembus proteksi multiple-download browser
+                    const downloadWindow = window.open(link.href, '_blank');
+                    
+                    // Menutup tab baru secara otomatis jika link langsung memicu download (khusus APK langsung)
+                    if (downloadWindow) {
+                        setTimeout(() => downloadWindow.close(), 1000);
+                    }
+                }, index * 5000); // Menjaga jeda 5 detik sesuai keinginanmu
             });
         }
     </script>
