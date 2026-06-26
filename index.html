@@ -11,7 +11,6 @@
     <style>
         :root {
             --bg-color: #03060e; /* Gelap pekat sesuai gambar */
-            --card-bg: rgba(10, 15, 28, 0.6);
             --border-color: rgba(255, 255, 255, 0.05);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
@@ -25,10 +24,10 @@
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 40px 20px;
+            padding: 60px 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             box-sizing: border-box;
             overflow-x: hidden;
@@ -101,44 +100,39 @@
             }
         }
 
-        /* --- CONTAINER UTAMA (GLASSMORPHISM) --- */
-        .container {
-            max-width: 650px;
+        /* --- TATA LETAK UTAMA (KOTAK CONTAINER BESAR DIHAPUS) --- */
+        .content-wrapper {
+            max-width: 600px;
             width: 100%;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
             z-index: 1;
-            animation: fadeInContainer 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeInContent 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
             transform: translateY(20px);
         }
 
-        @keyframes fadeInContainer {
+        @keyframes fadeInContent {
             to { opacity: 1; transform: translateY(0); }
         }
 
         header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
 
         h1 {
             font-size: 26px;
             font-weight: 700;
             letter-spacing: -0.5px;
-            margin: 0 0 8px 0;
+            margin: 0 0 10px 0;
             color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .subtitle {
             color: var(--text-muted);
             font-size: 14px;
             margin: 0;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
         }
 
         /* --- LIST LINK ITEM --- */
@@ -147,7 +141,7 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--text-muted);
-            margin: 25px 0 12px 0;
+            margin: 35px 0 15px 5px;
             font-weight: 700;
         }
 
@@ -161,21 +155,25 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(10, 15, 28, 0.4); /* Memberi sedikit filter gelap agar text berkas tetap kontras dan mudah dibaca */
             border: 1px solid var(--border-color);
-            padding: 16px 20px;
+            padding: 18px 22px;
             border-radius: 14px;
             text-decoration: none;
             color: var(--text-main);
             font-weight: 500;
             font-size: 14px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .download-item:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(59, 130, 246, 0.25);
-            transform: translateX(4px);
+            background: rgba(10, 15, 28, 0.6);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
         .download-item::after {
@@ -189,12 +187,13 @@
         .download-item:hover::after {
             color: var(--accent-primary);
             opacity: 1;
-            transform: translateX(2px);
+            transform: translateX(3px);
         }
 
         @media (max-width: 480px) {
-            .container { padding: 25px 20px; }
-            h1 { font-size: 20px; }
+            body { padding: 40px 16px; }
+            h1 { font-size: 21px; }
+            .download-item { padding: 16px 18px; }
         }
     </style>
 </head>
@@ -209,10 +208,10 @@
         <div class="tech-shape shape-5"></div>
     </div>
 
-    <div class="container">
+    <div class="content-wrapper">
         <header>
-            <h1>DELTA LITE 32 BIT | ANDROID 10</h1>
-            <p class="subtitle">Unduh paket setup resmi dan aplikasi pendukung</p>
+            <h1>DELTA LITE 32 BIT - ANDROID 10</h1>
+            <p class="subtitle">Setup lengkap executor dan tools tambahan</p>
         </header>
 
         <div class="section-title">Delta Lite Files</div>
