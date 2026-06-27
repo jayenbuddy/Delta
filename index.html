@@ -6,17 +6,17 @@
     <title>JayenBuddy.io</title>
     
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@800;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-color: #03060e; /* Gelap pekat sesuai gambar */
+            --bg-color: #03060e;
             --border-color: rgba(255, 255, 255, 0.05);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --accent-primary: #3b82f6;
             --accent-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            --shape-bg: rgba(59, 130, 246, 0.04); /* Warna shape melayang samar */
+            --shape-bg: rgba(59, 130, 246, 0.04);
         }
 
         body {
@@ -34,7 +34,7 @@
             position: relative;
         }
 
-        /* --- EFEK BACKGROUND MULTI-LAYER (AURORA & TECH SHAPES) --- */
+        /* --- EFEK BACKGROUND MULTI-LAYER --- */
         .bg-wrapper {
             position: fixed;
             top: 0;
@@ -46,7 +46,6 @@
             pointer-events: none;
         }
 
-        /* Lapisan Aurora Redup */
         .aurora {
             position: absolute;
             width: 140%;
@@ -67,7 +66,6 @@
             100% { transform: rotate(45deg) scale(1.1); }
         }
 
-        /* Elemen Grafis Kotak/Bulat Melayang (Gaya Delta Web) */
         .tech-shape {
             position: absolute;
             background: var(--shape-bg);
@@ -77,7 +75,6 @@
             animation: floatingShapes 16s infinite ease-in-out;
         }
 
-        /* Variasi Posisi, Ukuran, dan Kecepatan Shape */
         .shape-1 { width: 45px; height: 45px; top: 15%; left: 12%; animation-duration: 14s; }
         .shape-2 { width: 70px; height: 70px; top: 48%; right: 10%; border-radius: 18px; animation-duration: 20s; animation-delay: -3s; }
         .shape-3 { width: 55px; height: 55px; bottom: 12%; left: 25%; animation-duration: 16s; animation-delay: -7s; }
@@ -85,19 +82,9 @@
         .shape-5 { width: 80px; height: 80px; bottom: 25%; right: 30%; animation-duration: 22s; animation-delay: -5s; }
 
         @keyframes floatingShapes {
-            0% {
-                transform: translateY(0px) rotate(0deg) scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateY(-35px) rotate(45deg) scale(1.05);
-                opacity: 0.6;
-                border-color: rgba(59, 130, 246, 0.1);
-            }
-            100% {
-                transform: translateY(0px) rotate(90deg) scale(1);
-                opacity: 0.3;
-            }
+            0% { transform: translateY(0px) rotate(0deg) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-35px) rotate(45deg) scale(1.05); opacity: 0.6; border-color: rgba(59, 130, 246, 0.1); }
+            100% { transform: translateY(0px) rotate(90deg) scale(1); opacity: 0.3; }
         }
 
         /* --- TATA LETAK UTAMA --- */
@@ -105,9 +92,18 @@
             max-width: 600px;
             width: 100%;
             z-index: 1;
-            animation: fadeInContent 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* System Page/Tab */
+        .page {
+            display: none;
+            animation: fadeInContent 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(15px);
+        }
+
+        .page.active {
+            display: block;
         }
 
         @keyframes fadeInContent {
@@ -119,10 +115,9 @@
             margin-bottom: 40px;
         }
 
-        /* --- FONT UPDATE & GLITCH ANIMATION SYSTEM --- */
         h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 38px; /* Diperbesar agar kemiripan font boxy-nya makin berasa */
+            font-size: 38px;
             font-weight: 900;
             letter-spacing: -1px;
             margin: 0 0 12px 0;
@@ -132,9 +127,7 @@
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Lapisan efek glitch menggunakan pseudo-elements */
-        h1::before,
-        h1::after {
+        h1::before, h1::after {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -144,7 +137,6 @@
             background: var(--bg-color);
         }
 
-        /* Glitch baris merah/cyan khas cyber-style */
         h1::before {
             left: 2px;
             text-shadow: -2px 0 #ff00c1;
@@ -163,7 +155,7 @@
             0% { clip: rect(15px, 9999px, 66px, 0); transform: skew(0.3deg); }
             5% { clip: rect(34px, 9999px, 55px, 0); transform: skew(-0.5deg); }
             10% { clip: rect(70px, 9999px, 105px, 0); transform: skew(0.8deg); }
-            15% { clip: rect(0px, 0px, 0px, 0); } /* Diam berkala agar tidak pusing */
+            15% { clip: rect(0px, 0px, 0px, 0); }
             100% { clip: rect(0px, 0px, 0px, 0); }
         }
 
@@ -171,7 +163,7 @@
             0% { clip: rect(65px, 9999px, 110px, 0); transform: skew(-0.3deg); }
             5% { clip: rect(5px, 9999px, 40px, 0); transform: skew(0.5deg); }
             10% { clip: rect(95px, 9999px, 130px, 0); transform: skew(-0.2deg); }
-            15% { clip: rect(0px, 0px, 0px, 0); } /* Diam berkala */
+            15% { clip: rect(0px, 0px, 0px, 0); }
             100% { clip: rect(0px, 0px, 0px, 0); }
         }
 
@@ -182,7 +174,6 @@
             text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
         }
 
-        /* --- LIST LINK ITEM --- */
         .section-title {
             font-size: 11px;
             text-transform: uppercase;
@@ -192,13 +183,14 @@
             font-weight: 700;
         }
 
-        .download-list {
+        /* --- LIST & NAV ITEM STYLE --- */
+        .download-list, .lobby-nav {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .download-item {
+        .download-item, .nav-btn {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -214,16 +206,17 @@
             -webkit-backdrop-filter: blur(10px);
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
         }
 
-        .download-item:hover {
+        .download-item:hover, .nav-btn:hover {
             background: rgba(10, 15, 28, 0.6);
             border-color: rgba(59, 130, 246, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .download-item::after {
+        .download-item::after, .nav-btn::after {
             content: "→";
             font-size: 16px;
             color: var(--text-muted);
@@ -231,16 +224,41 @@
             transition: all 0.25s ease;
         }
 
-        .download-item:hover::after {
+        .download-item:hover::after, .nav-btn:hover::after {
             color: var(--accent-primary);
             opacity: 1;
             transform: translateX(3px);
         }
 
+        /* Tombol Kembali khusus */
+        .back-btn {
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.1);
+            color: #f87171;
+            justify-content: center;
+            margin-top: 40px;
+            font-weight: 600;
+        }
+        .back-btn:hover {
+            background: rgba(239, 68, 68, 0.15);
+            border-color: rgba(239, 68, 68, 0.4);
+            color: #f87171;
+        }
+        .back-btn::after { content: "" !important; }
+        .back-btn::before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 16px;
+            transition: all 0.25s ease;
+        }
+        .back-btn:hover::before {
+            transform: translateX(-3px);
+        }
+
         @media (max-width: 480px) {
             body { padding: 40px 16px; }
             h1 { font-size: 28px; }
-            .download-item { padding: 16px 18px; }
+            .download-item, .nav-btn { padding: 16px 18px; }
         }
     </style>
 </head>
@@ -261,20 +279,56 @@
             <p class="subtitle">Setup lengkap executor dan tools tambahan</p>
         </header>
 
-        <div class="section-title">Delta Lite Files</div>
-        <div class="download-list">
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.01-2.725.1142.apk.apk">DELTA 1</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.02-2.725.1142.apk.apk">DELTA 2</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.03-2.725.1142.apk.apk">DELTA 3</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.04-2.725.1142.apk.apk">DELTA 4</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.05-2.725.1142.apk.apk">DELTA 5</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.06-2.725.1142.apk.apk">DELTA 6</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.07-2.725.1142.apk.apk">DELTA 7</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.08-2.725.1142.apk.apk">DELTA 8</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.09-2.725.1142.apk.apk">DELTA 9</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.10-2.725.1142.apk.apk">DELTA 10</a>
+        <div id="lobby-page" class="page active">
+            <div class="section-title">Pilih Kategori File</div>
+            <div class="lobby-nav">
+                <div class="nav-btn" onclick="switchPage('lite-page')">Delta Lite Files</div>
+                <div class="nav-btn" onclick="switchPage('clone-page')">Delta Clone Files</div>
+            </div>
         </div>
 
+        <div id="lite-page" class="page">
+            <div class="section-title">Delta Lite Files</div>
+            <div class="download-list">
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.01-2.725.1142.apk.apk">DELTA 1</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.02-2.725.1142.apk.apk">DELTA 2</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.03-2.725.1142.apk.apk">DELTA 3</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.04-2.725.1142.apk.apk">DELTA 4</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.05-2.725.1142.apk.apk">DELTA 5</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.06-2.725.1142.apk.apk">DELTA 6</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.07-2.725.1142.apk.apk">DELTA 7</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.08-2.725.1142.apk.apk">DELTA 8</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.09-2.725.1142.apk.apk">DELTA 9</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32.BIT.10-2.725.1142.apk.apk">DELTA 10</a>
+            </div>
+
+            <div class="shared-content"></div>
+
+            <div class="nav-btn back-btn" onclick="switchPage('lobby-page')">Kembali ke Lobby</div>
+        </div>
+
+        <div id="clone-page" class="page">
+            <div class="section-title">Delta Clone Files</div>
+            <div class="download-list">
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.01-2.725.1142.apk">DELTA CLONE 1</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.02-2.725.1142.apk">DELTA CLONE 2</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.03-2.725.1142.apk">DELTA CLONE 3</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.04-2.725.1142.apk">DELTA CLONE 4</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.05-2.725.1142.apk">DELTA CLONE 5</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.06-2.725.1142.apk">DELTA CLONE 6</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.07-2.725.1142.apk">DELTA CLONE 7</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.08-2.725.1142.apk">DELTA CLONE 8</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.09-2.725.1142.apk">DELTA CLONE 9</a>
+                <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/Roblox.10-2.725.1142.apk">DELTA CLONE 10</a>
+            </div>
+
+            <div class="shared-content"></div>
+
+            <div class="nav-btn back-btn" onclick="switchPage('lobby-page')">Kembali ke Lobby</div>
+        </div>
+    </div>
+
+    <div id="shared-template" style="display: none;">
         <div class="section-title">Add-on Apps</div>
         <div class="download-list">
             <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/kiwi-browser-139-0-7339-0.apk">KIWI BROWSER</a>
@@ -287,5 +341,25 @@
         </div>
     </div>
 
+    <script>
+        // Memasukkan template Add-on Apps & Tools ke dalam halaman Lite dan Clone secara otomatis saat dimuat
+        document.querySelectorAll('.shared-content').forEach(container => {
+            container.innerHTML = document.getElementById('shared-template').innerHTML;
+        });
+
+        // Fungsi navigasi perpindahan halaman sistem SPA (Single Page Application)
+        function switchPage(pageId) {
+            // Sembunyikan semua halaman terlebih dahulu
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Tampilkan halaman target
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll otomatis ke atas
+            }
+        }
+    </script>
 </body>
 </html>
