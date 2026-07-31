@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JayenBuddy.io</title>
+    <title>JayenBuddy.io - Tools & Add-ons</title>
     
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@800;900&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 60px 20px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -42,10 +42,37 @@
 
         /* --- TATA LETAK --- */
         .content-wrapper { max-width: 600px; width: 100%; z-index: 1; }
-        header { text-align: center; margin-bottom: 40px; }
+        header { text-align: center; margin-bottom: 30px; }
         h1 { font-family: 'Outfit', sans-serif; font-size: 38px; font-weight: 900; margin: 0 0 12px 0; color: #ffffff; }
         .subtitle { color: var(--text-muted); font-size: 14px; }
-        .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 35px 0 15px 5px; font-weight: 700; }
+        
+        /* --- NAVIGASI HALAMAN --- */
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 30px;
+            background: rgba(10, 15, 28, 0.6);
+            padding: 6px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .nav-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .nav-btn.active, .nav-btn:hover {
+            background: var(--accent-primary);
+            color: #ffffff;
+        }
+
+        .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 25px 0 15px 5px; font-weight: 700; }
 
         /* --- LIST STYLE --- */
         .download-list { display: flex; flex-direction: column; gap: 12px; }
@@ -68,21 +95,14 @@
     <div class="content-wrapper">
         <header>
             <h1>JayenBuddy</h1>
-            <p class="subtitle">Setup lengkap Delta Lite terbaru</p>
+            <p class="subtitle">Tools & Add-on Apps Terbaru</p>
         </header>
 
-        <div class="section-title">Delta Lite Files</div>
-        <div class="download-list">
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.01-2.731.944.apk.apk">DELTA 1</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.02-2.731.944.apk.apk">DELTA 2</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.03-2.731.944.apk.apk">DELTA 3</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.04-2.731.944.apk.apk">DELTA 4</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.05-2.731.944.apk.apk">DELTA 5</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.06-2.731.944.apk.apk">DELTA 6</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.07-2.731.944.apk.apk">DELTA 7</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.08-2.731.944.apk.apk">DELTA 8</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.09-2.731.944.apk.apk">DELTA 9</a>
-            <a class="download-item" href="https://github.com/jayenbuddy/Delta/releases/download/v1/NO.MERCY.DELTA.LITE.32BIT.10-2.731.944.apk.apk">DELTA 10</a>
+        <!-- Menu Navigasi 3 Halaman -->
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-btn active">1. Tools & Add-ons</a>
+            <a href="delta32.html" class="nav-btn">2. Delta 32-Bit</a>
+            <a href="delta64.html" class="nav-btn">3. Delta 64-Bit</a>
         </div>
 
         <div class="section-title">Add-on Apps</div>
